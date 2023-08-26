@@ -14,11 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 
 from home import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', views.home)
+    
+    # DEPENDENCY!
+    # path('home', views.home) removed our previous dependency
+    
+    # rather than passing a function we are passing the file as a string
+    # now if the home app gets deleted we safely avoid errors
+    path('', include('home.urls'))
 ]
