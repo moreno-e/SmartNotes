@@ -18,6 +18,7 @@ from django.urls import path, include
 
 
 from home import views
+from notes import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     
@@ -26,5 +27,8 @@ urlpatterns = [
     
     # rather than passing a function we are passing the file as a string
     # now if the home app gets deleted we safely avoid errors
-    path('', include('home.urls'))
+    path('', include('home.urls')),
+    
+    # all the notes.urls will not be added after smart
+    path('smart/', include('notes.urls')),
 ]
