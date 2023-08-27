@@ -10,8 +10,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # CLASS BASED VIEW
 class HomeView(TemplateView):
-    template_name 'home/welcome.html'
-    extra_context = {'today'; datetime.today()}
+    template_name = 'home/welcome.html'
+    extra_context = {'today': datetime.today()}
 
 
 class AuthorizedView(LoginRequiredMixin, TemplateView):
