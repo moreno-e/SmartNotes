@@ -9,9 +9,11 @@ def custom_404_handler(request, exception):
 
 urlpatterns = [
     #path('notes', views.list),
-    path('notes', views.NotesListView.as_view()),
+    # With the name, now we telling django what endpoint to link to
+    # That's all we need for Django dynamically define each endpoint we are pointing to, no matter if you're on localhost or production.
+    path('notes', views.NotesListView.as_view(), name="notes.list"),
     #path('notes/<int:pk>', views.detail),
-    path('notes/<int:pk>', views.NotesDetailView.as_view()),
+    path('notes/<int:pk>', views.NotesDetailView.as_view(), name="notes.detail"),
 ]
 
 # Assign the custom 404 handler

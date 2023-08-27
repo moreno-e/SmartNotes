@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartNotes!</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+
     <h1>Welcome to SmartNotes</h1>
     <p>Today is {{today}}</p>
-</body>
-</html>
+
+    <!-- We could hardcode link to localhost but if we deploy we need to replace it
+    if we do the following there is not need to.
+    How does it know which endpoint to link? Need to update the a path in our Notes -->
+    <a href="{% url 'notes.list' %}" class="btn btn-primary">Check out these smart notes!</a>
+{% endblock %}
