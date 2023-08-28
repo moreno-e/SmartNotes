@@ -3,13 +3,17 @@ from django.http import Http404
 
 from django.views.generic import CreateView, DetailView, ListView
 
+from .forms import NotesForm
 from .models import Notes
 
 class NotesCreateView(CreateView):
     # so the endpoint notes what it's regarding to
     model = Notes
+
     # attributes from the model that we allow a user to fill
-    fields = ['title', 'text']
+    # fields = ['title', 'text']
+    form_class = NotesForm
+
     # want to redirect the user to the list of updated notes
     success_url = '/smart/notes' 
 

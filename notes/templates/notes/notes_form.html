@@ -6,9 +6,14 @@
 <form action="{% url 'notes.new' %}" method="POST"> {% csrf_token %}
     <!-- This alone would give us a title and text textarea
     based of the attributes we gave it in the urls -->
-    {{form}}
+    {{form.as_p}}
 
     <button type="submit" class="btn btn-primary my-5">Submit</button>
 </form>
 
+{% if form.errors %}
+<div class="alert alert-danger my-5">
+    {{form.errors.title.as_text}}
+</div>
+{% endif %}
 {% endblock %}
