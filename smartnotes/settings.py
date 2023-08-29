@@ -130,3 +130,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# When we try to login Django by default tries to direct us to a default accounts profile page
+# here we set it to what we want
+# were the user will be redirect once they are logged in
+LOGIN_REDIRECT_URL = '/smart/notes'
