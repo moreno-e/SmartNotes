@@ -17,6 +17,10 @@ urlpatterns = [
 
     # CREATE
     path('notes/new', views.NotesCreateView.as_view(), name="notes.new"),
+
+    # DELETE
+    path('notes/<int:pk>/delete', views.NotesDeleteView.as_view(), name="notes.delete"),
+
 ]
 
 # Assign the custom 404 handler

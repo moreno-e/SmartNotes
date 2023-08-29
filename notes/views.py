@@ -2,9 +2,19 @@ from django.shortcuts import render
 from django.http import Http404
 
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
+from django.views.generic.edit import DeleteView
 
 from .forms import NotesForm
 from .models import Notes
+
+class NotesDeleteView(DeleteView):
+    model = Notes
+    success_url = '/smart/notes'
+
+    # Django expects a certain name for their template
+    # It expects it to be named notes/note_confirm_delete.html
+    # However we named it notes_delete thus, we have to add below
+    template_name = 'notes/notes_delete.html'
 
 class NotesCreateView(CreateView):
     # so the endpoint notes what it's regarding to
