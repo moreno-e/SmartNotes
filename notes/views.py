@@ -51,3 +51,4 @@ class NotesListView(LoginRequiredMixin, ListView):
 class NotesDetailView (DetailView):
     model = Notes
     context_object_name = "note"
+    login_url = "/login"
