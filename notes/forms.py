@@ -6,6 +6,15 @@ class NotesForm(forms.ModelForm):
     class Meta:
         model = Notes
         fields = ('title', 'text')
+        # we are ching the title and text without affecting the template
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control my-5'}),
+            'text': forms.Textarea(attrs={'class': 'form-control mb-5'})
+        }
+        # we are controllng the text field label 
+        labels = {
+            'text': 'Write your '
+        }
     
     def clean_title(self):
         #cleaned_data is a dictionary
