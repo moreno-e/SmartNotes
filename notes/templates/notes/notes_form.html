@@ -3,7 +3,10 @@
 {% block content %}
 
  <!-- We need the csrf token or we would get a 404 -->
-<form action="{% url 'notes.new' %}" method="POST"> {% csrf_token %}
+
+ <!-- currenlty we are hard coding which URL the form should be sent to
+ We can acutally get rid of the action="{% url 'notes.new' %}" -->
+<form method="POST">{% csrf_token %}
     <!-- This alone would give us a title and text textarea
     based of the attributes we gave it in the urls -->
     {{form.as_p}}
@@ -16,4 +19,5 @@
     {{form.errors.title.as_text}}
 </div>
 {% endif %}
+<a href="{% url 'notes.list' %}" class="btn btn-secondary">Cancel</a>
 {% endblock %}
